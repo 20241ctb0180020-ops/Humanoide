@@ -245,6 +245,8 @@ namespace StarterAssets
                 _speed = targetSpeed;
             }
 
+            _speed = Mathf.SmoothStep(_speed, targetSpeed, Time.deltaTime * speedSmoothnesss);
+            _animator.SetFloat("Speed", _speed);
             _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
             if (_animationBlend < 0.01f) _animationBlend = 0f;
 
